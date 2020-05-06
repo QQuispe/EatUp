@@ -1,0 +1,153 @@
+body {
+  background: #2f90e5;
+  color: black;
+  margin-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff;
+}
+
+ul {
+  margin: 0;
+}
+
+.bg-map {
+  background-color: #2f90e5;
+}
+
+.button {
+  background-color: white;
+  color: #2f90e5;
+  padding: 18px 36px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #2f90e5;
+  color: white;
+}
+
+.b {
+  background-color: white;
+  border: none;
+  color: #2f90e5;
+  padding: 18px 62px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+}
+
+.b:hover {
+  background-color: #2f90e5;
+  color: white;
+}
+
+#map {
+    height: 800px;  /* The height is 800 pixels */
+    width: 100%;  /* The width is the width of the map page */
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.center {
+  margin: auto;
+  width: 80%;
+  padding: 10px;
+}
+
+/* set text inside cards to black */
+.card-body h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+/* set text inside cards to black */
+.card-body p {
+  color: black;
+}
+
+/* add padding above map */
+.top-buffer {
+    margin-top:20px;
+}
+
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+}
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* fixes issue with autocomplete being out of position */
+.pac-container {
+    margin-top: -75px;
+}
+
+/* radio button css */
+.radioContainer{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size:18px;
+    user-select: none;
+    padding-left: 30px;
+}
+
+.radioContainer input{
+    display: none;
+}
+
+.radioContainer .circle{
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+}
+
+.radioContainer:hover .circle{
+    background-color: #ccc;
+}
+
+.radioContainer input:checked + .circle{
+    background-color: #2f90e5;
+}
+
+.radioContainer input:checked + .circle:after{
+    content: "";
+    height: 10px;
+    width: 10px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

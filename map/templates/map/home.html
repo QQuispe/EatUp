@@ -1,0 +1,147 @@
+{% extends "map/base.html" %}
+{% block content %}
+<div class="card card-body" style="max-width: 80rem;">
+    <!-- GET USER LOCATIONS-->
+    <div>
+        <h1 style="text-align: center">EatUp</h1>
+        <!-- <form action = "" method = "get">
+            <label for="your_name">Your name: </label>
+            <input id="your_name" type="text" name="your_name">
+            <input type="submit" value="OK">
+        </form>  -->
+
+        <!-- Added {% url 'map-results' %} to form action -->
+        <form action="{% url 'map-results' %}" method="get">
+            <div class="form-group">
+                <label for="search">Your address:</label>
+                <input class="form-control form-control-lg" id="search" placeholder="1234 Main St"
+                       type="text" name="location"
+                       required/>
+                <!-- <input type="submit" value="OK">  -->
+            </div>
+            <div class="form-group">
+                <label for="search1">Friend's address:</label>
+                <input class="form-control form-control-lg" id="search1" placeholder="1234 Main St"
+                       type="text" name="location"
+                       required/>
+                <!-- <input type="submit" value="OK">  -->
+            </div>
+            <h4 style="text-align:center;">Select the type of food:</h4>
+            <div class="row center">
+                <div class="col-sm">
+                    <label class="radioContainer" for="american">American
+                        <input type="radio" id="american" name="radio" value="american">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="arabian">Arabian
+                        <input type="radio" id="arabian" name="radio" value="arabian" required>
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="brazilian">Brazilian
+                        <input type="radio" id="brazilian" name="radio" value="brazilian">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="burmese">Burmese
+                        <input type="radio" id="burmese" name="radio" value="burmese">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="chinese">Chinese
+                        <input type="radio" id="chinese" name="radio" value="chinese">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                </div>
+                <div class="col-sm">
+                    <label class="radioContainer" for="cuban">Cuban
+                        <input type="radio" id="cuban" name="radio" value="cuban">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="ethiopian">Ethiopian
+                        <input type="radio" id="ethiopian" name="radio" value="ethiopian">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="fastfood">Fast Food
+                        <input type="radio" id="fastfood" name="radio" value="hotdogs">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="french">French
+                        <input type="radio" id="french" name="radio" value="french">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="greek">Greek
+                        <input type="radio" id="greek" name="radio" value="greek">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                </div>
+                <div class="col-sm">
+                    <label class="radioContainer" for="indian">Indian
+                        <input type="radio" id="indian" name="radio" value="indpak">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="italian">Italian
+                        <input type="radio" id="italian" name="radio" value="italian">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="japanese">Japanese
+                        <input type="radio" id="japanese" name="radio" value="japanese">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="mexican">Mexican
+                        <input type="radio" id="mexican" name="radio" value="mexican">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="persian">Persian
+                        <input type="radio" id="persian" name="radio" value="persian">
+                        <span class="circle"></span>
+                    </label>
+                </div>
+                <div class="col-sm">
+                    <label class="radioContainer" for="peruvian">Peruvian
+                        <input type="radio" id="peruvian" name="radio" value="peruvian">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="spanish">Spanish
+                        <input type="radio" id="spanish" name="radio" value="spanish">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="thai">Thai
+                        <input type="radio" id="thai" name="radio" value="thai">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="vegan">Vegan
+                        <input type="radio" id="vegan" name="radio" value="vegan">
+                        <span class="circle"></span>
+                    </label>
+                    <br/>
+                    <label class="radioContainer" for="surprise">Surprise Me!
+                        <input type="radio" id="surprise" name="radio" value="restaurants">
+                        <span class="circle"></span>
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-block b hover" type="submit">Submit</button>
+        </form>
+
+        <div class="top-buffer">
+            <!--The div element for the map -->
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

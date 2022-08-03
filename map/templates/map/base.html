@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>PyGuys</title>
+    <title>Eat Up</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
@@ -20,7 +20,6 @@
     <!-- JQuery Library-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
     <style>
         body{
             background: url("{% static 'images/bg5.jpg' %}") no-repeat fixed center;
@@ -29,7 +28,6 @@
             position: relative;
         }
     </style>
-
 </head>
 <body>
 
@@ -37,7 +35,7 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-map fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'map-home' %}">CMSC 206</a>
+            <a class="navbar-brand mr-4" href="{% url 'map-home' %}">Eat Up</a>
             <button aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation"
                     class="navbar-toggler"
                     data-target="#navbarToggle" data-toggle="collapse" type="button">
@@ -46,7 +44,6 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
                     <a class="nav-item nav-link" href="{% url 'map-home' %}">Home</a>
-                    <a class="nav-item nav-link" href="{% url 'map-deliverables' %}">Deliverables</a>
                 </div>
                 <!-- Navbar Right Side
                 <div class="navbar-nav">
@@ -66,7 +63,7 @@
 <!-- Google Maps Script -->
 <script src="{% static 'map/script.js' %}"></script>
 <script async defer
-        src="https://maps.googleapis.com/maps/api/js?callback=initAutocomplete&libraries=places&key=YOUR_GOOGLE_API_KEY">
+        src="https://maps.googleapis.com/maps/api/js?callback=initAutocomplete&libraries=places&key={{ GOOGLE_MAPS_KEY }}">
 </script>
 
 <!-- Optional JavaScript -->

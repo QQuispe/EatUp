@@ -9,12 +9,6 @@ from .backend import *
 def home(request):
     return render(request, 'map/home.html')
 
-
-def about(request):
-    return render(request, 'map/deliverables.html')
-
-
 def results(request):
     dic = get_address(request)
     return render(request, 'map/results.html', dic)
-

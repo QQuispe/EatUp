@@ -50,10 +50,10 @@ python manage.py runserver
 
 ## Demo
 
-![Home page](https://github.com/QQuispe/EatUp/blob/master/EatUp/readme_assets/EatUp_home.png?raw=true)
+![Home page](https://github.com/QQuispe/EatUp/blob/master/readme_assets/EatUp_home.png?raw=true)
 
 
-![Results page](https://github.com/QQuispe/EatUp/blob/master/EatUp/readme_assets/EatUp_results.png?raw=true)
+![Results page](https://github.com/QQuispe/EatUp/blob/master/readme_assets/EatUp_results.png?raw=true)
 
 ## License
 

@@ -1,53 +1,277 @@
-{% extends "map/base.html" %}
-{% block content %}
-{% load static %}
+{% extends "map/base.html" %} {% block content %} {% load static %}
 <div>
     <div class="row justify-content-center">
         <h1>Results</h1>
     </div>
     <div class="row justify-content-center">
-        {% for restaurant in businesses %}
-        <div class="col-auto mb-3">
-            <div class="card" style="width: 30rem;">
-                <div class="card-body">
-                    <img src={{restaurant.image_url}} alt="Restaurant" style="max-width:100%" class="rounded">
-                    <div>
-                        <h3>Restaurant: {{restaurant.name}}</h3>
-                        {% if restaurant.rating == 5.0 %}
-                        <p>Stars: <img src="{% static 'images/small_5@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 4.5 %}
-                        <p>Stars: <img src="{% static 'images/small_4_half@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 4.0 %}
-                        <p>Stars: <img src="{% static 'images/small_4@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 3.5 %}
-                        <p>Stars: <img src="{% static 'images/small_3_half@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 3.0 %}
-                        <p>Stars: <img src="{% static 'images/small_3@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 2.5 %}
-                        <p>Stars: <img src="{% static 'images/small_2_half@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 2.0 %}
-                        <p>Stars: <img src="{% static 'images/small_2@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 1.5 %}
-                        <p>Stars: <img src="{% static 'images/small_1_half@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 1.0 %}
-                        <p>Stars: <img src="{% static 'images/small_1@2x.png' %}"/></p>
-                        {% elif restaurant.rating == 0 %}
-                        <p>Stars: <img src="{% static 'images/small_0@2x.png' %}"/></p>
-                        {% else %}
-                        <p>No rating</p>
-                        {% endif %}
-                        <p>Food Type: {{restaurant.categories.0.title}}</p>
-                        <p>Address: {{restaurant.location.display_address.0}}
-                            {{restaurant.location.display_address.1}}
-                            {{restaurant.location.display_address.2}}</p>
-                        <p>Phone number: {{restaurant.display_phone}}</p>
-                        <a class="btn btn-block button hover" href="#">Directions</a>
-                        <a class="btn btn-block button hover" href="{{restaurant.url}}">View on Yelp</a>
+        <div class="col-10">
+            <div
+                id="carouselExampleIndicators2"
+                class="carousel slide"
+                data-ride="carousel"
+            >
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            {% for restaurant in businesses|slice:":2" %}
+                            <div class="col-md-6 mb-2">
+                                <div class="card" style="width: 30rem">
+                                    <div class="card-body">
+                                        <img
+                                            src="{{restaurant.image_url}}"
+                                            alt="Restaurant"
+                                            style="max-width: 100%"
+                                            class="rounded"
+                                        />
+                                        <div>
+                                            <h3>
+                                                Restaurant: {{restaurant.name}}
+                                            </h3>
+                                            {% if restaurant.rating == 5.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_5@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 4.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_4_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 4.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_4@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 3.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_3_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 3.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_3@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 2.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_2_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 2.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_2@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 1.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_1_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 1.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_1@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_0@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% else %}
+                                            <p>No rating</p>
+                                            {% endif %}
+                                            <p>
+                                                Food Type:
+                                                {{restaurant.categories.0.title}}
+                                            </p>
+                                            <p>
+                                                Address:
+                                                {{restaurant.location.display_address.0}}
+                                                {{restaurant.location.display_address.1}}
+                                                {{restaurant.location.display_address.2}}
+                                            </p>
+                                            <p>
+                                                Phone number:
+                                                {{restaurant.display_phone}}
+                                            </p>
+                                            <a
+                                                class="btn btn-block button hover"
+                                                href="#"
+                                                >Directions</a
+                                            >
+                                            <a
+                                                class="btn btn-block button hover"
+                                                href="{{restaurant.url}}"
+                                                >View on Yelp</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            {% for restaurant in businesses|slice:"2:" %}
+                            <div class="col-md-6 mb-2">
+                                <div class="card" style="width: 30rem">
+                                    <div class="card-body">
+                                        <img
+                                            src="{{restaurant.image_url}}"
+                                            alt="Restaurant"
+                                            style="max-width: 100%"
+                                            class="rounded"
+                                        />
+                                        <div>
+                                            <h3>
+                                                Restaurant: {{restaurant.name}}
+                                            </h3>
+                                            {% if restaurant.rating == 5.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_5@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 4.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_4_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 4.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_4@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 3.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_3_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 3.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_3@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 2.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_2_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 2.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_2@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 1.5 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_1_half@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 1.0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_1@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% elif restaurant.rating == 0 %}
+                                            <p>
+                                                Stars:
+                                                <img
+                                                    src="{% static 'images/small_0@2x.png' %}"
+                                                />
+                                            </p>
+                                            {% else %}
+                                            <p>No rating</p>
+                                            {% endif %}
+                                            <p>
+                                                Food Type:
+                                                {{restaurant.categories.0.title}}
+                                            </p>
+                                            <p>
+                                                Address:
+                                                {{restaurant.location.display_address.0}}
+                                                {{restaurant.location.display_address.1}}
+                                                {{restaurant.location.display_address.2}}
+                                            </p>
+                                            <p>
+                                                Phone number:
+                                                {{restaurant.display_phone}}
+                                            </p>
+                                            <a
+                                                class="btn btn-block button hover"
+                                                href="#"
+                                                >Directions</a
+                                            >
+                                            <a
+                                                class="btn btn-block button hover"
+                                                href="{{restaurant.url}}"
+                                                >View on Yelp</a
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="col-12 text-center">
+                <a
+                    class="btn btn-primary mb-3 mr-1"
+                    href="#carouselExampleIndicators2"
+                    role="button"
+                    data-slide="prev"
+                >
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a
+                    class="btn btn-primary mb-3"
+                    href="#carouselExampleIndicators2"
+                    role="button"
+                    data-slide="next"
+                >
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
         </div>
-        {% endfor %}
     </div>
+    {% endblock content %}
 </div>
-{% endblock content %}

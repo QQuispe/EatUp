@@ -64,19 +64,15 @@ def center_finder(coordinates_list):
 
 # Define a business ID
 def dump_jason(center_lat, center_lng, typeFood):
-    dic = {}
-    business_id = 'YOUR_BUSINESS_ID'
-    unix_time = 1546047836
-
     # Define my API Key, My Endpoint, and My Header
     YELP_KEY = settings.YELP_KEY
-    ENDPOINT = 'https://api.yelp.com/v3/businesses/search'.format(business_id)
+    ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
     HEADERS = {'Authorization': 'bearer %s' % YELP_KEY}
 
     # Define Paramters -  Autocomplete
     PARAMETERS = {'text': 'good food',
                   'categories': typeFood,
-                  'limit': 3,
+                  'limit': 4, # How many restuarants are returned to front end
                   'latitude': center_lat,
                   'longitude': center_lng}
 

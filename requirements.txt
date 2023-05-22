@@ -1,5 +1,5 @@
 Django==3.1.14
 google==2.0.3
 googlemaps==4.2.0
-requests==2.23.0
+requests==2.31.0
 python-dotenv==0.20.0
